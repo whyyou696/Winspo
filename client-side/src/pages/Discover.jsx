@@ -5,19 +5,21 @@ import { Error, Loader, SongCard } from "../components";
 import { genres } from "../assets/constants";
 import { useGetTopChartsQuery } from "../redux/services/shazamCore";
 
-// CAKE = {
-    
-//     SLICE: MUSIC PLAYER FUNCTIONALITY
-//     SLICE: MUSIC PLAYER FUNCTIONALITY
-// }
+
 const Discover = () => {
     const dispatch = useDispatch();
-    // const {} = useSelector((CAKE) => CAKE.VANILLA )
+    // const {} = useSelector()
 
   const { data, isFetching, error } = useGetTopChartsQuery();
   const genreTitle = "Pop";
 
-  if (isFetching) return <Loader title="Loading songs..." />;
+  if (isFetching) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full">
+        <Loader title="Loading songs..." size="large" />
+      </div>
+    );
+  };
 
   //  if (error) return <Error />;
 
