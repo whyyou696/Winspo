@@ -19,17 +19,18 @@ const Discover = () => {
 
   if (isFetching) return <Loader title="Loading songs..." />;
 
-//   if (error) return <Error />;
+  //  if (error) return <Error />;
 
   console.log(data)
   return (
     <div className="flex flex-col">
       <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
-        <h2 className="font-bold text-3xl text-left text-[#ff5151]">Discover <br/>Genre : "{genreTitle}"</h2>
+        <h2 className="font-bold text-3xl text-left text-[#ff5151]">Discover</h2>
+        <p className="cursor-pointer font-semibold text-base text-white bg-[#ff5151] rounded-lg p-3 hover:bg-white hover:text-[#ff5151] transition duration-300">You Choose {genreTitle}</p>
         <select
           onChange={() => {}}
           value=""
-          className="bg-[#ff5151] text-white p-3 text-sm rounded-lg outline-none sm:mt-0 mt-5"
+          className="bg-[#ff5151] text-white p-3 text-sm rounded-lg outline-none sm:mt-0 mt-5 hover:bg-white hover:text-[#ff5151] transition duration-300"
         >
           {genres.map((genre) => (
             <option key={genre.value} value={genre.value}>
