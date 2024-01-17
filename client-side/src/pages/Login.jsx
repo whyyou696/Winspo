@@ -19,8 +19,8 @@ import React, { useState } from "react";
       e.preventDefault();
   
       try {
-        const response = await Axios.post("https://api.p2.lc2s5.foxhub.space/login", formData);
-  
+        const response = await Axios.post("", formData);
+        
         const { access_token } = response.data;
         localStorage.setItem("access_token", access_token);
         Swal.fire({

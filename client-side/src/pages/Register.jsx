@@ -21,7 +21,7 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      const response = await Axios.post("https://api.p2.lc2s5.foxhub.space/register", formData);
+      const response = await Axios.post("", formData);
       Swal.fire({
         icon: 'success',
         title: 'Registration Successful',

@@ -21,7 +21,7 @@ const Sidebar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <>
-    <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-white">
+    <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-white dark:bg-[#ff5151]">
       <img src={logo} alt="logo" className="w-full h-40 object-contain"/>
     <NavLinks />
     </div>
