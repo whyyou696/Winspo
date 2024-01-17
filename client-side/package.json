@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/fa-icon-chooser-react": "^0.6.0",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^1.6.5",
     "react": "^18.2.0",
