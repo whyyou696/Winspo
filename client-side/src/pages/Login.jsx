@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { useSpring, animated } from "react-spring";
 import logo from "../assets/logo.png";
 
 export default function Login() {
@@ -12,6 +13,10 @@ export default function Login() {
 
   const navigate = useNavigate();
 
+  const fadeIn = useSpring({
+    opacity: 1,
+    from: { opacity: 0 }
+  });
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -83,7 +88,10 @@ export default function Login() {
   });
 
   return (
-    <section className="bg-gradient-to-br from-white to-[#ff5151] min-h-screen flex items-center justify-center">
+    <animated.section
+    style={fadeIn}
+    className="bg-gradient-to-br from-white to-[#ff5151] min-h-screen flex items-center justify-center"
+  >
       <div className="max-w-xl w-full bg-white p-10 rounded-md shadow-md dark:border dark:border-gray-700 flex">
         <div className="mr-8">
           <img src={logo} alt="Logo" className="w-50 h-50" />
@@ -147,6 +155,6 @@ export default function Login() {
           </form>
         </div>
       </div>
-    </section>
+      </animated.section>
   );
 }
