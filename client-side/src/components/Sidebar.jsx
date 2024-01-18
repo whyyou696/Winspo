@@ -60,7 +60,7 @@ const Sidebar = () => {
 
         <button
           onClick={handleLogout}
-          className="ml-4 bg-[#ff5151] text-white p-3 text-sm rounded-lg outline-none cursor-pointer mr-2 hover:bg-white hover:text-[#ff5151] transition duration-300 animate-bounce"
+          className="ml-4 bg-[#ff5151] text-white p-3 text-sm rounded-lg outline-none cursor-pointer mr-2 hover:bg-white hover:text-[#ff5151] transition duration-300 animate-bounce font-bold font-xl"
         >
           Logout
         </button>
@@ -84,9 +84,6 @@ const Sidebar = () => {
       >
         <img src={logo} alt="logo" className="w-full h-14 object-contain" />
         <NavLinks handleClick={() => setMobileMenuOpen(false)} />
-        <button onClick={handleLogout} className="mt-8 text-white">
-          Logout
-        </button>
       </div>
     </>
   );
