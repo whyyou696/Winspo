@@ -64,7 +64,7 @@ module.exports = class UserController {
     try {
       const ticket = await client.verifyIdToken({
         idToken: token,
-        audience: "261169357803-keuu9oq6gov5s5b2ddvkmaia56h4v3rc.apps.googleusercontent.com",
+        audience: process.env.GOOGLE_CLIENT_ID,
       });
       const payload = ticket.getPayload();
       const email = payload.email;

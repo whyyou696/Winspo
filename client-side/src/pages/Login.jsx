@@ -25,7 +25,7 @@ export default function Login() {
 
     try {
       const response = await Axios.post(
-        "http://localhost:3000/login",
+        "https://winspoip.wahyurj.my.id/login",
         formData
       );
 
@@ -54,7 +54,7 @@ export default function Login() {
     try {
       const { data } = await Axios({
         method: "post",
-        url: "http://localhost:3000/google-login",
+        url: "https://winspoip.wahyurj.my.id/google-login",
         headers: {
           "google-token": credential,
         },
@@ -77,7 +77,7 @@ export default function Login() {
 
   useEffect(() => {
     google.accounts.id.initialize({
-      client_id: "261169357803-keuu9oq6gov5s5b2ddvkmaia56h4v3rc.apps.googleusercontent.com",
+      client_id: import.meta.env.VITE_CLIENT_GOOGLE_ID,
       callback: handleCredentialResponse,
     });
     google.accounts.id.renderButton(
