@@ -4,8 +4,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 import logo from "../assets/logo.png";
-
-export default function Login() {
+ const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -15,7 +14,8 @@ export default function Login() {
 
   const fadeIn = useSpring({
     opacity: 1,
-    from: { opacity: 0 }
+    from: { opacity: 0 },
+    config: { duration: 2000 },
   });
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -80,17 +80,17 @@ export default function Login() {
       client_id: import.meta.env.VITE_CLIENT_GOOGLE_ID,
       callback: handleCredentialResponse,
     });
-    google.accounts.id.renderButton(
-      document.getElementById("google-login"),
-      { theme: "outline", size: "large" }
-    );
+    google.accounts.id.renderButton(document.getElementById("google-login"), {
+      theme: "outline",
+      size: "large",
+    });
   });
 
   return (
     <animated.section
-    style={fadeIn}
-    className="bg-gradient-to-br from-white to-[#ff5151] min-h-screen flex items-center justify-center"
-  >
+      style={fadeIn}
+      className="bg-gradient-to-br from-white to-[#ff5151] min-h-screen flex items-center justify-center"
+    >
       <div className="max-w-xl w-full bg-white p-10 rounded-md shadow-md dark:border dark:border-gray-700 flex">
         <div className="mr-8">
           <img src={logo} alt="Logo" className="w-50 h-50" />
@@ -111,7 +111,7 @@ export default function Login() {
                 type="email"
                 name="email"
                 id="email"
-                className="input-field"
+                className="input-field italic"
                 placeholder="name@company.com"
                 required=""
                 onChange={handleChange}
@@ -150,10 +150,11 @@ export default function Login() {
                 Register here
               </a>
             </p>
-            
           </form>
         </div>
       </div>
-      </animated.section>
+    </animated.section>
   );
 }
+
+export default Login;

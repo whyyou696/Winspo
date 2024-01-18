@@ -1,16 +1,23 @@
 import React, { useState } from "react";
+import { useSpring, animated } from "react-spring";
 import Axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/logo2.png"
+import logo from "../assets/logo2.png";
 
-export default function Register() {
+const Register = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
   const navigate = useNavigate();
+
+  const fadeIn = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { duration: 2000 }, 
+  });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,20 +27,25 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      const response = await Axios.post("https://winspoip.wahyurj.my.id/register", formData);
+      const response = await Axios.post(
+        "https://winspoip.wahyurj.my.id/register",
+        formData
+      );
       Swal.fire({
-        icon: 'success',
-        title: 'Registration Successful',
-        text: 'Your account has been created successfully!',
+        icon: "success",
+        title: "Registration Successful",
+        text: "Your account has been created successfully!",
       });
       navigate("/login");
 
       console.log(response.data);
     } catch (error) {
       Swal.fire({
-        icon: 'error',
-        title: 'Registration Failed',
-        text: error.response?.data || 'There was an error creating your account. Please try again.',
+        icon: "error",
+        title: "Registration Failed",
+        text:
+          error.response?.data ||
+          "There was an error creating your account. Please try again.",
       });
 
       console.error("Registration failed", error);
@@ -41,7 +53,7 @@ export default function Register() {
   };
 
   return (
-    <section className="bg-gradient-to-br from-white to-[#ff5151] min-h-screen flex items-center justify-center">
+    <animated.section style={fadeIn} className="bg-gradient-to-br from-white to-[#ff5151] min-h-screen flex items-center justify-center">
       <div className="max-w-xl w-full bg-white p-10 rounded-md shadow-md dark:border dark:border-gray-700 flex">
         <div className="mr-8">
           <img src={logo} alt="Logo" className="w-50 h-50" />
@@ -49,7 +61,7 @@ export default function Register() {
         <div className="flex flex-col justify-center">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Create an account</h1>
           <form className="space-y-6" onSubmit={handleSubmit}>
-            <div>
+          <div>
               <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Your email
               </label>
@@ -89,6 +101,8 @@ export default function Register() {
           </form>
         </div>
       </div>
-    </section>
+    </animated.section>
   );
 }
+
+export default Register
