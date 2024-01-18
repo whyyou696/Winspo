@@ -14,7 +14,7 @@ const TopCharts = () => {
 
   return (
     <div className="flex flex-col">
-      <h2 className="font-bold text-4xl text-[#ff5151] text-left mt-4 mb-4">Discover Top Charts</h2>
+      <h2 className="font-bold text-4xl text-[#ff5151] text-left mt-1 mb-2">Discover Top Charts</h2>
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
         {data.map((song, i) => (

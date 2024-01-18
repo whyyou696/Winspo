@@ -12,7 +12,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 
 const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => (
-  <div className={`w-full flex flex-row items-center hover:bg-[#4c426e] ${activeSong?.title === song?.title ? 'bg-[#4c426e]' : 'bg-transparent'} py-2 p-4 rounded-lg cursor-pointer mb-2`}>
+  <div className={`w-full flex flex-row items-center hover:bg-[#ff5151] transition duration-300 ${activeSong?.title === song?.title ? 'bg-[#4c426e]' : 'bg-transparent'} py-2 p-4 rounded-lg cursor-pointer`}>
     <h3 className="font-bold text-base text-white mr-3">{i + 1}.</h3>
     <div className="flex-1 flex flex-row justify-between items-center">
       <img className="w-20 h-20 rounded-lg" src={song?.images?.coverart} alt={song?.title} />
@@ -23,7 +23,7 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
           </p>
         </Link>
         <Link to={`/artists/${song?.artists[0].adamid}`}>
-          <p className="text-base text-gray-300 mt-1">
+          <p className="text-base text-gray-700 mt-1">
             {song?.subtitle}
           </p>
         </Link>
@@ -66,7 +66,7 @@ const TopPlay = () => {
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-white font-bold text-2xl">Top Charts</h2>
           <Link to="/top-charts">
-            <p className="text-white text-base cursor-pointer hover:text-[#ff5151] transition duration-300">See More</p>
+            <p className="text-white text-base cursor-pointer hover:text-[#ff5151] transition duration-300 bg-[#ff5151] py-2 px-3 rounded-full hover:text-[#ff5151] hover:bg-white">See More</p>
           </Link>
         </div>
 
@@ -89,7 +89,7 @@ const TopPlay = () => {
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-white font-bold text-2xl">Top Artists</h2>
           <Link to="/top-artists">
-            <p className="text-white text-base cursor-pointer hover:text-[#ff5151] transition duration-300">See More</p>
+            <p className="text-white text-base cursor-pointer transition duration-300 bg-[#ff5151] py-2 px-3 rounded-full hover:text-[#ff5151] hover:bg-white">See More</p>
           </Link>
         </div>
 
@@ -105,12 +105,13 @@ const TopPlay = () => {
           {topPlays?.slice(0, 5).map((artist) => (
             <SwiperSlide
               key={artist?.key}
-              style={{ width: '25%', height: 'auto' }}
-              className="shadow-lg rounded-full animate-slideright"
+              style={{ width: '20%', height: '20%' }}
+              className="shadow-lg rounded-full animate-slideright hover:bg-black cursor-pointer transition duration-300"
             >
               <Link to={`/artists/${artist?.artists[0].adamid}`}>
-                <img src={artist?.images?.background} alt="Name" className="rounded-full w-full object-cover" />
+                <img src={artist?.images?.background} alt="Name" className="rounded-full w-full object-cover " />
               </Link>
+              <p className="text-white text-center mt-2 font-bold">{artist?.subtitle}</p>
             </SwiperSlide>
           ))}
         </Swiper>

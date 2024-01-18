@@ -30,6 +30,7 @@ const NavLinks = ({ handleClick }) => (
         <item.icon className="w-6 h-6 mr-2" />
         {item.name}
       </NavLink>
+      
     ))}
   </div>
 );
@@ -43,11 +44,12 @@ const Sidebar = () => {
 
   return (
     <>
-
-
-      <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-gradient-to-br from-white to-[#ff5151]">
-        <img src={logo} alt="logo" className="w-full h-76 object-contain" />
+      <div className="md:flex hidden flex-col w-[200px] py-10 px-4 bg-gradient-to-br from-white to-[#ff5151]">
+        <img src={logo} alt="logo" className="w-full h-52 object-contain" />
         <NavLinks />
+        <div className="flex flex-col items-center justify-center mt-4 gap-2 animate-bounce">
+          <p className="text-white text-sm mt-20">© 2024 WinSpo Music Player</p>
+        </div>
       </div>
 
       {/* Button to toggle mobile sidebar */}
@@ -69,6 +71,7 @@ const Sidebar = () => {
       >
         <img src={logo} alt="logo" className="w-full h-14 object-contain" />
         <NavLinks handleClick={() => setMobileMenuOpen(false)} />
+       
       </div>
     </>
   );
