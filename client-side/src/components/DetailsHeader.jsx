@@ -1,24 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const DetailsHeader = ({ artistId, artistData, songData }) => (
   <div className="relative w-full flex flex-col">
-    <div className="w-full bg-gradient-to-l from-transparent to-black sm:h-48 h-28" />
-
+    <div className="w-full bg-gradient-to-br from-white/20 to-[#ff5151/80] sm:h-48 h-20" />
     <div className="absolute inset-0 flex items-center">
       <img
         alt="profile"
         src={
-          artistId ? artistData?.attributes?.artwork?.url
-            .replace('{w}', '500')
-            .replace('{h}', '500')
+          artistId
+            ? artistData?.attributes?.artwork?.url
+                .replace("{w}", "500")
+                .replace("{h}", "500")
             : songData?.images?.coverart
-}
-        className="sm:w-48 w-28 sm:h-48 h-28 rounded-full object-cover border-2 shadow-xl shadow-black"
+        }
+        className="sm:w-48 w-28 sm:h-48 h-28 rounded-full object-cover border-2 shadow-xl shadow-[#ff5151]"
       />
 
       <div className="ml-5">
-        <p className="font-bold sm:text-3xl text-xl text-white">
+        <p className="font-bold sm:text-3xl text-xl text-[#ff5151]">
           {artistId ? artistData?.attributes?.name : songData?.title}
         </p>
         {!artistId && (
@@ -27,7 +27,7 @@ const DetailsHeader = ({ artistId, artistData, songData }) => (
           </Link>
         )}
 
-        <p className="text-base text-gray-400 mt-2">
+        <p className="text-base text-white font-bold text-2xl mt-2">
           {artistId
             ? artistData?.attributes?.genreNames[0]
             : songData?.genres?.primary}

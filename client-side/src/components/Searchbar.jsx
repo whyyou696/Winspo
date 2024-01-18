@@ -19,13 +19,13 @@ const Searchbar = () => {
         Search all files
       </label>
       <div className="flex flex-row justify-start items-center">
-        <FiSearch aria-hidden="true" className="w-5 h-5 ml-4" />
+        <FiSearch aria-hidden="true" className="w-10 h-10 ml-4" />
         <input
           name="search-field"
           autoComplete="off"
           id="search-field"
-          className="flex flex-col bg-transparent border-none placeholder-gray-500 outline-none text-base text-[#ff5151] p-4"
-          placeholder="Search"
+          className="flex-1 bg-transparent border-none placeholder-gray-500 outline-none text-base text-[#ff5151] p-4"
+          placeholder="Search all here...."
           type="search"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}

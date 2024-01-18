@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import Axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import logo from "../images/logo.png";
+import logo from "../assets/logo2.png"
 
 export default function Register() {
   const [formData, setFormData] = useState({
-    fullName: "",
     email: "",
     password: "",
   });
@@ -21,7 +20,7 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      const response = await Axios.post("", formData);
+      const response = await Axios.post("http://localhost:3000/register", formData);
       Swal.fire({
         icon: 'success',
         title: 'Registration Successful',
@@ -42,7 +41,7 @@ export default function Register() {
   };
 
   return (
-    <section className="bg-gradient-to-br from-blue-500 to-orange-500 min-h-screen flex items-center justify-center">
+    <section className="bg-gradient-to-br from-white to-[#ff5151] min-h-screen flex items-center justify-center">
       <div className="max-w-xl w-full bg-white p-10 rounded-md shadow-md dark:border dark:border-gray-700 flex">
         <div className="mr-8">
           <img src={logo} alt="Logo" className="w-50 h-50" />
@@ -50,20 +49,6 @@ export default function Register() {
         <div className="flex flex-col justify-center">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Create an account</h1>
           <form className="space-y-6" onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="fullname" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                User Name
-              </label>
-              <input
-                type="text"
-                name="fullName"
-                id="fullName"
-                className="input-field italic border rounded-md p-2"
-                placeholder="John Doe"
-                required=""
-                onChange={handleChange}
-              />
-            </div>
             <div>
               <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Your email
@@ -94,7 +79,7 @@ export default function Register() {
             </div>
             <button
               type="submit"
-              className="bg-blue-600 hover:bg-orange-500 transition-all ease-in-out duration-300 text-white px-6 py-2 rounded-md font-bold"
+              className="bg-[#ff5151] hover:bg-blue-500 transition-all ease-in-out duration-300 text-white px-6 py-2 rounded-md font-bold"
             >
               Create an account
             </button>

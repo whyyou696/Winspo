@@ -66,11 +66,11 @@ const TopPlay = () => {
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-white font-bold text-2xl">Top Charts</h2>
           <Link to="/top-charts">
-            <p className="text-gray-300 text-base cursor-pointer">See more</p>
+            <p className="text-white text-base cursor-pointer hover:text-[#ff5151] transition duration-300">See More</p>
           </Link>
         </div>
 
-        <div className="mt-4 flex flex-col gap-1">
+        <div className="mt-1 flex flex-col gap-1">
           {topPlays?.map((song, i) => (
             <TopChartCard
               key={song.key}
@@ -85,11 +85,11 @@ const TopPlay = () => {
         </div>
       </div>
 
-      <div className="w-full flex flex-col mt-8">
+      <div className="w-full flex flex-col mt-2">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-white font-bold text-2xl">Top Artists</h2>
           <Link to="/top-artists">
-            <p className="text-gray-300 text-base cursor-pointer">See more</p>
+            <p className="text-white text-base cursor-pointer hover:text-[#ff5151] transition duration-300">See More</p>
           </Link>
         </div>
 
@@ -100,7 +100,7 @@ const TopPlay = () => {
           centeredSlides
           centeredSlidesBounds
           modules={[FreeMode]}
-          className="mt-4"
+          className="mt-2"
         >
           {topPlays?.slice(0, 5).map((artist) => (
             <SwiperSlide
