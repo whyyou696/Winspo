@@ -16,7 +16,7 @@ const Layout = () => {
           <div className="flex-1 h-fit pb-40">
           </div>
           <Outlet/>
-          <div className="xl:sticky relative top-0 h-fit">
+          <div className="xl:sticky relative top-0 h-fit mb-10">
             <TopPlay />
           </div>
         </div>
