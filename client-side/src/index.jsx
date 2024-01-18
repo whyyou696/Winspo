@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import { Provider } from "react-redux";
 import {
   ArtistDetails,
@@ -16,50 +20,6 @@ import {
 import "./index.css";
 import Layout from "./App";
 import { store } from "./redux/store";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// const router = createBrowserRouter([
-// {
-//   path: "/register"
-//   element: <Register />
-// },
-// {
-//   path: "/login"
-//   element: <Login />
-// },
-// {
-//   element: <Layout/>
-//   children: [
-//     {
-//       path: "/"
-//       element: <Discover />
-//     },
-//     {
-//       path: "/top-artists"
-//       element: <TopArtists />
-//     },
-//     {
-//       path: "/top-charts"
-//       element: <TopCharts />
-//     },
-//     {
-//       path: "/around-you"
-//       element: <AroundYou />
-//     },
-//     {
-//       path: "/artists/:id"
-//       element: <ArtistDetails />
-//     },
-//     {
-//       path: "/songs/:songid"
-//       element: <SongDetails />
-//     },
-//     {
-//       path: "/search/:searchTerm"
-//       element: <Search />
-//     },
-//   ]
-// }
-// ])
 
 const router = createBrowserRouter([
   {
@@ -107,11 +67,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
     <Provider store={store}>
-      <Router>
-        <Layout />
-      </Router>
+      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>
 );
+
