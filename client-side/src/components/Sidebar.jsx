@@ -50,7 +50,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="md:flex hidden flex-col w-[200px] py-10 px-4 bg-gradient-to-br from-white to-[#ff5151]">
+      <div className="md:flex hidden flex-col w-[200px] py-10 px-4 bg-gradient-to-bl from-white to-[#ff5151]">
         <img src={logo} alt="logo" className="w-full h-52 object-contain" />
         <NavLinks />
        
@@ -67,7 +67,7 @@ const Sidebar = () => {
       </div>
 
       <button
-        className="md:hidden fixed bottom-6 right-6 bg-[#ff5151] text-white rounded-full p-3"
+        className="cursor-pointer fixed bottom-7 right-7 z-40 bg-gray-600 text-white rounded-full p-2"
         onClick={toggleMobileMenu}
       >
         {mobileMenuOpen ? (
@@ -78,7 +78,7 @@ const Sidebar = () => {
       </button>
 
       <div
-        className={`absolute top-0 h-screen w-2/3 bg-gradient-to-tl from-white/10 to-[#483D8B] backdrop-blur-lg z-10 p-6 md:hidden smooth-transition ${
+        className={`absolute top-0 h-screen w-2/3 bg-gradient-to-tl from-white/10 to-[#ff5151] backdrop-blur-lg z-10 p-6 md:hidden smooth-transition ${
           mobileMenuOpen ? "left-0" : "-left-full"
         }`}
       >
