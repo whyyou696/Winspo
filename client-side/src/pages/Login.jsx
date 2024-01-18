@@ -25,7 +25,7 @@ export default function Login() {
 
     try {
       const response = await Axios.post(
-        "http://localhost:3000/login",
+        "https://winspoip.wahyurj.my.id/login",
         formData
       );
 
@@ -54,7 +54,7 @@ export default function Login() {
     try {
       const { data } = await Axios({
         method: "post",
-        url: "http://localhost:3000/google-login",
+        url: "https://winspoip.wahyurj.my.id/google-login",
         headers: {
           "google-token": credential,
         },

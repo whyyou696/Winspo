@@ -20,7 +20,7 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      const response = await Axios.post("http://localhost:3000/register", formData);
+      const response = await Axios.post("https://winspoip.wahyurj.my.id/register", formData);
       Swal.fire({
         icon: 'success',
         title: 'Registration Successful',
